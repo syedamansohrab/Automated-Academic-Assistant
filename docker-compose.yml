@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # The Python AI & UI Service
+  frontend:
+    build: 
+      context: ./ai-frontend-python
+    ports:
+      - "8501:8501" # Default Streamlit port
+    volumes:
+      - ./ai-frontend-python:/app
+    environment:
+      - SEARCH_API_URL=http://backend:8080
+    depends_on:
+      - backend
+
+  # The Java Lucene Search Service
+  backend:
+    build:
+      context: ./backend-java
+    ports:
+      - "8080:8080" # Standard Java backend port
+    volumes:
+      - ./backend-java:/app
+      - ./data-corpus:/data-corpus # Give backend access to the PDFs

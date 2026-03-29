@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Java
+target/
+*.class
+
+# Docker
+.docker/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Project specific
+data-corpus/*
+!data-corpus/.gitkeep
